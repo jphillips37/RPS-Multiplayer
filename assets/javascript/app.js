@@ -42,6 +42,24 @@ database.ref().on("value", function(snapshot){
     player2Choice = snapshot.val().Player2Choice;
     player2Exists = snapshot.val().Player2Exists;
 
+    // console.log(player1Name);
+    // if (player1Name != "null" && player1Name != $("#player-1-name").text()) {
+    //     $("#player-1-name").text(player1Name);
+    //     $("#player-2-name").text(player2Name);
+    // }
+    // firebase is dumb, give me SQL
+})
+
+database.ref().on("child_changed", function(snapshot){
+    player1Name = snapshot.val().Player1;
+    player1Choice = snapshot.val().Player1Choice;
+    player1Exists = snapshot.val().Player1Exists;
+
+    player2Name = snapshot.val().Player2;
+    player2Choice = snapshot.val().Player2Choice;
+    player2Exists = snapshot.val().Player2Exists;
+
+    console.log(player1Name);
     if (player1Name != "null" && player1Name != $("#player-1-name").text()) {
         $("#player-1-name").text(player1Name);
         $("#player-2-name").text(player2Name);
